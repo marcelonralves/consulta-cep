@@ -10,8 +10,8 @@ class CepController extends Controller
 {
     public function index(CepRequest $request): JsonResponse
     {
-        $checkCEP = new ViaCepService($request->cep);
+        $checkCep = new ViaCepService($request->cep);
 
-        return $checkCEP->getCep();
+        return $checkCep->getCep();
     }
 }
