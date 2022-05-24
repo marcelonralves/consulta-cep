@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\CepRequest;
+use App\Services\ViaCepService;
+use Illuminate\Http\JsonResponse;
 
 class CepController extends Controller
 {
-    public function index(Request $request, string $cep)
+    public function index(CepRequest $request): JsonResponse
     {
-       //TODO: Consulta de API e o retorno
+        $checkCEP = new ViaCepService($request->cep);
+
+        return $checkCEP->getCep();
     }
 }
